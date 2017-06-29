@@ -1,9 +1,7 @@
 package com.codenotfound.kafka;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.concurrent.TimeUnit;
-
+import com.codenotfound.kafka.consumer.Receiver;
+import com.codenotfound.kafka.producer.Sender;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
@@ -17,14 +15,15 @@ import org.springframework.kafka.test.rule.KafkaEmbedded;
 import org.springframework.kafka.test.utils.ContainerTestUtils;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.codenotfound.kafka.consumer.Receiver;
-import com.codenotfound.kafka.producer.Sender;
+import java.util.concurrent.TimeUnit;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringKafkaApplicationTest {
 
-  private static String HELLOWORLD_TOPIC = "helloworld.t";
+  private static String HELLOWORLD_TOPIC = "hello_world_topic";
 
   @Autowired
   private Sender sender;
